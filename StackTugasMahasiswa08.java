@@ -54,6 +54,21 @@ public class StackTugasMahasiswa08 {
         }
     }
 
+    // Soal no 4 - lihat tugas terbawah
+    public Mahasiswa08 peekBottom() {
+        if (!isEmpty()) {
+            return stack[0];
+        } else {
+            System.out.println("Stack kosong!");
+            return null;
+        }
+    }
+
+    // Soal no 5 - hitung jumlah tugas
+    public int hitungTugas() {
+        return top + 1;
+    }
+
     public void print() {
         for (int i = top; i >= 0; i--) {
             System.out.println(stack[i].nama + "\t" + stack[i].nim + "\t" + stack[i].kelas);
@@ -61,15 +76,18 @@ public class StackTugasMahasiswa08 {
         System.out.println("");
     }
 
-    public Mahasiswa08 lihatBawah() {
-    if (!isEmpty()) {
-        return stack[0];
-    } else {
-        System.out.println("Stack kosong!");
-        return null;
+    // Percobaan 2 - konversi desimal ke biner
+    public String konversiDesimalKeBiner(int nilai) {
+        StackKonversi08 stack = new StackKonversi08();
+        while (nilai > 0) {
+            int sisa = nilai % 2;
+            stack.push(sisa);
+            nilai = nilai / 2;
+        }
+        String biner = new String();
+        while (!stack.isEmpty()) {
+            biner += stack.pop();
+        }
+        return biner;
     }
-}
-    public int jumlahTugas() {
-    return top + 1;
-}
 }
